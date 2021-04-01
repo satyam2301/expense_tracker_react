@@ -41,12 +41,15 @@ h4 {
 }
 
 .inc-exp-container {
-  background-color: #fff;
+  background: rgba(247, 239, 239, 0.05);
+  backdrop-filter: blur( 9.5px );
+  -webkit-backdrop-filter: blur( 9.5px );
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  border-radius: 8px;
 }
 
 .inc-exp-container > div {
