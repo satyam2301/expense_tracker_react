@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
+import Transaction from "./Transaction";
 
 const TransactionList = () => {
-    return (
-        <>
-           <h3>History</h3> 
-           <ul className="list">
-               <li className="minus">
-                   Cash <span>-$400</span> 
-                   <button className="delete-btn">X</button>
-               </li>
-           </ul>
-        </>
-    )
-}
+  // useContext.transactions === {transactions}  destructuring
+  const { transactions } = useContext(GlobalContext);
+  // as transactions is an array so we have to map through it to get all the data
 
-export {TransactionList}
+  return (
+    <>
+      <h3>History</h3>
+      <ul className="list">
+        {transactions.map((transaction) => {
+          return (
+            <>
+              <Transaction
+                text={transaction.text}
+                amount={transaction.amount}
+                key={transaction.id}
+                ids={transaction.id}
+              />
+            </>
+          );
+        })}
+      </ul>
+    </>
+  );
+};
+
+export { TransactionList };
